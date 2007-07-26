@@ -1,7 +1,7 @@
 %define module	Snowball-Norwegian
 %define name	perl-%{module}
-%define version 1.0
-%define release %mkrel 3
+%define version 1.2
+%define release %mkrel 1
 
 Name:		%{name}
 Version:	%{version}
@@ -9,16 +9,16 @@ Release:	%{release}
 Summary:	Porters stemming algorithm for Denmark
 License:	GPL or Artistic
 Group:		Development/Perl
-Source:		http://search.cpan.org/CPAN/authors/id/C/CI/CINE/%{module}-%{version}.tar.bz2
-Url:            http://search.cpan.org/dist/%{module}/
+Url:        http://search.cpan.org/dist/%{module}/
+Source:		http://search.cpan.org/CPAN/authors/id/A/AS/ASKSH/%{module}-%{version}.tar.bz2
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 Requires:	locales-no
-BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 Obsoletes:	perl-Lingua-Stem-Snowball-No
 Provides:	perl-Lingua-Stem-Snowball-No
+BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 The stem function takes a scalar as a parameter and stems the word according to
@@ -39,9 +39,6 @@ website: http://snowball.tartarus.org/.
 rm -rf %{buildroot} 
 %makeinstall_std
 
-mv %{buildroot}%{perl_vendorlib}/Lingua/Stem/Snowball/stemmer.pl \
-    %{buildroot}%{perl_vendorlib}/Lingua/Stem/Snowball/stemmer-No.pl
-
 %clean 
 rm -rf %{buildroot} 
 
@@ -49,6 +46,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc Changes README
 %{perl_vendorlib}/Lingua
+%{_bindir}/stemmer-no.pl
 %{_mandir}/man3/*
 
 
