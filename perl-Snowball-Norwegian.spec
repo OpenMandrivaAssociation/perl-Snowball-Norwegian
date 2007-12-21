@@ -18,6 +18,7 @@ Requires:	locales-no
 Obsoletes:	perl-Lingua-Stem-Snowball-No
 Provides:	perl-Lingua-Stem-Snowball-No
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 The stem function takes a scalar as a parameter and stems the word according to
